@@ -1,0 +1,50 @@
+---
+import { SITE_EMAIL, SITE_LOCATION, SITE_TITLE } from '../consts';
+const today = new Date();
+---
+
+<footer>
+	<div class="shell">
+		<p class="eyebrow">Open to interesting software work, side-project conversations, and good writing.</p>
+		<div class="meta">
+			<span>{SITE_LOCATION}</span>
+			<a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
+		</div>
+		<p class="copyright">&copy; {today.getFullYear()} {SITE_TITLE}. Built with Astro.</p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		padding: 3rem 1rem 4rem;
+		color: rgb(var(--muted));
+	}
+	.shell {
+		width: min(1120px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding-top: 2rem;
+		border-top: 1px solid rgba(var(--border), 0.9);
+	}
+	.eyebrow,
+	.copyright {
+		margin: 0;
+	}
+	.eyebrow {
+		max-width: 38rem;
+		color: rgb(var(--ink));
+	}
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin: 1rem 0;
+	}
+	.meta a {
+		color: rgb(var(--ink));
+	}
+	@media (max-width: 640px) {
+		.shell {
+			width: min(100%, calc(100% - 1.25rem));
+		}
+	}
+</style>

@@ -1,0 +1,104 @@
+---
+import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav class="shell">
+		<a class="brand" href="/">{SITE_TITLE}</a>
+		<div class="internal-links" aria-label="Primary">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/projects">Projects</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+		<div class="social-links" aria-label="Social">
+			{
+				SOCIAL_LINKS.map((link) => (
+					<a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'}>
+						{link.label}
+					</a>
+				))
+			}
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 20;
+		backdrop-filter: blur(18px);
+		background: rgba(247, 243, 234, 0.82);
+		border-bottom: 1px solid rgba(var(--border), 0.7);
+	}
+	.shell {
+		width: min(1120px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 1rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	.brand {
+		font-size: 0.95rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgb(var(--ink));
+		text-decoration: none;
+	}
+	.internal-links {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+	.internal-links a,
+	.social-links a {
+		padding: 0.45rem 0.8rem;
+		border-radius: 999px;
+		color: rgb(var(--ink));
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+	.internal-links a.active {
+		background: rgb(var(--ink));
+		color: rgb(var(--paper-rgb));
+	}
+	.social-links {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+	.social-links a {
+		border: 1px solid rgba(var(--border), 0.9);
+		background: rgba(var(--paper-rgb), 0.6);
+	}
+	.internal-links a:hover,
+	.social-links a:hover {
+		background: rgba(var(--accent-soft), 0.9);
+	}
+	@media (max-width: 860px) {
+		.shell {
+			flex-wrap: wrap;
+		}
+		.social-links {
+			width: 100%;
+			justify-content: flex-start;
+		}
+	}
+	@media (max-width: 640px) {
+		.shell {
+			width: min(100%, calc(100% - 1.25rem));
+		}
+		.internal-links {
+			width: 100%;
+			flex-wrap: wrap;
+		}
+		.social-links {
+			display: none;
+		}
+	}
+</style>

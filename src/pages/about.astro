@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_DESCRIPTION, SITE_EMAIL, SITE_LOCATION, SITE_TITLE } from '../consts';
+---
+
+<BaseLayout title={`About | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+	<section class="about-hero">
+		<p class="eyebrow">About</p>
+		<h1>From outside Austin to Harvard football to Axon, the through-line has always been competition, discipline, and growth.</h1>
+		<p>
+			I like building in environments that reward discipline, fast learning, and the ability to
+			execute under pressure. Sports shaped that early, and the same mindset still carries over into
+			how I approach work now.
+		</p>
+	</section>
+
+	<section class="about-grid">
+		<div class="card">
+			<h2>Short bio</h2>
+			<p>
+				I was born and raised outside Austin, Texas, and grew up playing sports year-round. That led
+				me to Harvard, where I played football and studied economics. Being part of a high-level team
+				environment taught me how much I enjoy challenge, structure, and pushing toward difficult
+				goals with other ambitious people.
+			</p>
+			<p>
+				Today I am based in Scottsdale and work at Axon in its Leadership Development Program. I have
+				spent time around AI software development and broader tech work, and I am interested in the
+				kinds of problems that sit at the intersection of product, execution, and real-world impact.
+			</p>
+			<p>
+				Outside of work, I stay active, lift, play sports, and unwind with video games. I like
+				competition, I like improvement, and I like building a life that has some balance between
+				serious work and things that are just fun.
+			</p>
+		</div>
+		<div class="card">
+			<h2>What I am focused on</h2>
+			<ul>
+				<li>Growing as an operator and leader inside technology organizations</li>
+				<li>Learning faster by building projects instead of just talking about them</li>
+				<li>Exploring AI and software opportunities with real-world usefulness</li>
+				<li>Staying competitive, active, and disciplined outside of work too</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="contact card">
+		<h2>Contact</h2>
+		<p>{SITE_LOCATION}</p>
+		<p>
+			<a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
+		</p>
+	</section>
+</BaseLayout>
+
+<style>
+	.about-hero {
+		max-width: 48rem;
+		padding: 4rem 0 2rem;
+	}
+	.eyebrow {
+		font-size: 0.9rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgb(var(--muted));
+	}
+	.about-hero h1 {
+		font-size: clamp(2.4rem, 7vw, 5rem);
+		margin-bottom: 1rem;
+	}
+	.about-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		padding-bottom: 1rem;
+	}
+	.card {
+		padding: 1.35rem;
+		border-radius: 24px;
+		border: 1px solid rgba(var(--border), 0.9);
+		background: rgba(var(--paper-rgb), 0.72);
+	}
+	.contact {
+		max-width: 28rem;
+		margin-bottom: 3rem;
+	}
+	@media (max-width: 900px) {
+		.about-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

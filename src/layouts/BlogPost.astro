@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+	<article class="post-shell">
+		<div class="post-head">
+			<p class="date">
+				<FormattedDate date={pubDate} />
+				{
+					updatedDate && (
+						<span class="last-updated-on">
+							Updated <FormattedDate date={updatedDate} />
+						</span>
+					)
+				}
+			</p>
+			<h1>{title}</h1>
+			<p class="summary">{description}</p>
+			{
+				tags.length > 0 && (
+					<ul class="tags" aria-label="Post tags">
+						{tags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				)
+			}
+		</div>
+		{heroImage && (
+			<div class="hero-image">
+				<Image width={1200} height={675} src={heroImage} alt="" />
+			</div>
+		)}
+		<div class="prose">
+			<slot />
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.post-shell {
+		width: min(900px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 3rem 0 2rem;
+	}
+	.post-head {
+		max-width: 42rem;
+		margin-bottom: 2rem;
+	}
+	.post-head h1 {
+		font-size: clamp(2.4rem, 7vw, 4.8rem);
+		margin-bottom: 1rem;
+	}
+	.summary,
+	.date {
+		color: rgb(var(--muted));
+	}
+	.date {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		font-size: 0.95rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		list-style: none;
+		padding: 0;
+		margin: 1.2rem 0 0;
+	}
+	.tags li {
+		padding: 0.3rem 0.7rem;
+		border-radius: 999px;
+		background: rgba(var(--accent-soft), 0.9);
+		font-size: 0.9rem;
+	}
+	.hero-image {
+		margin-bottom: 2rem;
+	}
+	.hero-image img {
+		width: 100%;
+		display: block;
+		border-radius: 28px;
+		border: 1px solid rgba(var(--border), 0.9);
+	}
+	.prose {
+		max-width: 42rem;
+	}
+	.last-updated-on::before {
+		content: '•';
+		margin-right: 0.75rem;
+	}
+	@media (max-width: 640px) {
+		.post-shell {
+			width: min(100%, calc(100% - 1.25rem));
+			padding-top: 2rem;
+		}
+	}
+</style>

@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<BaseLayout title={`Projects | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+	<section class="page-head">
+		<p class="eyebrow">Projects</p>
+		<h1>This page is ready for real work, not filler.</h1>
+		<p>
+			I do not have public side projects posted here yet. The point of this page is to become the
+			place where future builds, experiments, and case studies live once they are worth sharing.
+		</p>
+	</section>
+
+	<section class="projects-list">
+		<article class="project-row">
+			<div>
+				<p class="status">Coming soon</p>
+				<h2>First projects are in development.</h2>
+			</div>
+			<div>
+				<p>
+					When projects start landing here, they will focus on what I built, why I built it, and what
+					I learned from shipping it.
+				</p>
+				<ul class="tag-list" aria-label="Future project themes">
+					<li>AI</li>
+					<li>Software</li>
+					<li>Experiments</li>
+					<li>Case studies</li>
+				</ul>
+			</div>
+			<div class="project-link-wrap">
+				<a href="/blog">Check back later</a>
+			</div>
+		</article>
+	</section>
+</BaseLayout>
+
+<style>
+	.page-head {
+		max-width: 44rem;
+		padding: 4rem 0 2rem;
+	}
+	.eyebrow,
+	.status {
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgb(var(--muted));
+	}
+	.page-head h1 {
+		font-size: clamp(2.4rem, 7vw, 5rem);
+		margin-bottom: 1rem;
+	}
+	.projects-list {
+		display: grid;
+		gap: 1rem;
+		padding-bottom: 3rem;
+	}
+	.project-row {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr) auto;
+		gap: 1.25rem;
+		padding: 1.35rem;
+		border-radius: 24px;
+		border: 1px solid rgba(var(--border), 0.9);
+		background: rgba(var(--paper-rgb), 0.72);
+	}
+	.project-link-wrap {
+		display: flex;
+		align-items: start;
+	}
+	.project-link-wrap a {
+		color: rgb(var(--ink));
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.tag-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+	}
+	.tag-list li {
+		padding: 0.25rem 0.65rem;
+		border-radius: 999px;
+		background: rgba(var(--accent-soft), 0.95);
+		font-size: 0.85rem;
+	}
+	@media (max-width: 900px) {
+		.project-row {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
