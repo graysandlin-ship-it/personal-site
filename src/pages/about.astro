@@ -30,16 +30,23 @@ import { SITE_DESCRIPTION, SITE_EMAIL, SITE_LOCATION, SITE_TITLE } from '../cons
 				first six-month rotation, I worked on Axon's Corporate AI team and went from zero coding
 				background to shipping four production services: a video platform for team how-tos, a browser
 				extension framework for inline tours and SOP documentation, an ingestion pipeline that turns
-				meetings into searchable chats with transcripts and artifacts, and an AI podcast engine that
-				can turn almost anything into a high-quality audio briefing. A lot of that lines up with what
-				drew me to Axon in the first place: the idea that technology can help protect life, improve
-				public safety, and make hard jobs a little safer and more effective.
+				meetings into queryable chats you can also talk to, and an AI podcast engine that can turn
+				almost anything into a high-quality audio briefing. A lot of that lines up with what drew me to
+				Axon in the first place: the idea that technology can help protect life, improve public
+				safety, and make hard jobs safer and more effective.
+			</p>
+			<p>
+				My dad is a career firefighter, which was a big part of what first got me interested in public
+				safety in the first place. It gave me an early appreciation for the people doing difficult,
+				high-stakes work on the ground, and it is also a big reason Axon's mission and products felt
+				compelling to me. I would also love to see the company get even more involved in Fire and EMS
+				over time.
 			</p>
 			<p>
 				My current rotation is as a technical aide to Axon's CEO. That means part-time shadowing him,
 				part-time pressure testing ideas, and part-time building custom software for him, people
-				around him, or the company more broadly. It is a sharp learning curve, which is usually a good
-				sign.
+				around him, or the company more broadly. It is a sharp learning curve, one that I could not be
+				more excited to be on.
 			</p>
 			<p>
 				Outside of work, I still spend a lot of time around technology. I like flying drones, trying
@@ -49,24 +56,25 @@ import { SITE_DESCRIPTION, SITE_EMAIL, SITE_LOCATION, SITE_TITLE } from '../cons
 				a decent start but not nearly enough.
 			</p>
 		</div>
-		<div class="card">
-			<h2>What I am focused on</h2>
-			<ul>
-				<li>Developing my professional, technical, leadership, and operational skills</li>
-				<li>Learning from sharp people and meeting more of them</li>
-				<li>Exploring where technology is going and how it can solve real problems</li>
-				<li>Traveling, seeing more of the world, and staying curious about how people live</li>
-				<li>Staying active, competitive, and serious about health, performance, and longevity</li>
-			</ul>
+		<div class="sidebar">
+			<div class="card">
+				<h2>What I am focused on</h2>
+				<ul>
+					<li>Developing my professional, technical, leadership, and operational skills</li>
+					<li>Learning from sharp people and meeting more of them</li>
+					<li>Exploring where technology is going and how it can solve real problems</li>
+					<li>Traveling, seeing more of the world, and staying curious about how people live</li>
+					<li>Staying active, competitive, and serious about health, performance, and longevity</li>
+				</ul>
+			</div>
+			<section class="contact card">
+				<h2>Contact</h2>
+				<p>{SITE_LOCATION}</p>
+				<p>
+					<a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
+				</p>
+			</section>
 		</div>
-	</section>
-
-	<section class="contact card">
-		<h2>Contact</h2>
-		<p>{SITE_LOCATION}</p>
-		<p>
-			<a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
-		</p>
 	</section>
 </BaseLayout>
 
@@ -91,6 +99,7 @@ import { SITE_DESCRIPTION, SITE_EMAIL, SITE_LOCATION, SITE_TITLE } from '../cons
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
 		padding-bottom: 1rem;
+		align-items: start;
 	}
 	.card {
 		padding: 1.35rem;
@@ -98,8 +107,12 @@ import { SITE_DESCRIPTION, SITE_EMAIL, SITE_LOCATION, SITE_TITLE } from '../cons
 		border: 1px solid rgba(var(--border), 0.9);
 		background: rgba(var(--paper-rgb), 0.72);
 	}
+	.sidebar {
+		display: grid;
+		gap: 1rem;
+		align-content: start;
+	}
 	.contact {
-		max-width: 28rem;
 		margin-bottom: 3rem;
 	}
 	@media (max-width: 900px) {
