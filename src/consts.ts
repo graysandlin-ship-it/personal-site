@@ -1,9 +1,9 @@
-export const SITE_TITLE = 'Your Name';
+export const SITE_TITLE = 'Grayson Sandlin';
 export const SITE_TAGLINE =
-	'Leadership development at Axon, AI software experience, athlete mindset, and an eye toward building what comes next.';
+	'Axon, technology, athlete mentality, and a long-term interest in building useful things for the real world.';
 export const SITE_DESCRIPTION =
 	'Personal website for Grayson Sandlin covering work, background, future projects, and writing.';
-export const SITE_URL = 'https://grayson-sandlin.pages.dev';
+export const SITE_URL = 'https://personal-site-5nv.pages.dev';
 export const SITE_EMAIL = 'Graysandlin@gmail.com';
 export const SITE_LOCATION = 'Scottsdale, AZ';
 
